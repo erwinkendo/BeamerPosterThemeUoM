@@ -6,6 +6,10 @@ Inner blocks where designed using **tcolorbox** package and are fully customizab
 
 References use biblatex and chicago referencing style.
 
-Follow the example available in **psoter.tex** to add and remove blocks. You can edit **beamerthemeNRCGposter.sty** to add or remove logos and change the colors of the blocks.
+Follow the example available in **poster.tex** to add and remove blocks, fill author details and so on. You can edit **beamerthemeNRCGposter.sty** to add or remove logos, change the color of the blocks or modify anything you want.
 
-![Poster Logo](poster.png)
+Follow the license, share with others and be happy.
+
+<p align="center">
+  <img src="poster.png">
+</p>
