@@ -1,0 +1,94 @@
+\documentclass{beamer}
+\usepackage[orientation=portrait,size=a0,scale=1.18,debug]{beamerposter}
+\mode<presentation>{\usetheme{NRCGposter}}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel} % changed the option to english
+\usepackage[babel]{csquotes}
+\usepackage{hyperref} %enable hyperlink for urls
+\usepackage{blindtext}
+
+\title{Long long very long title}
+\author{Fancy people with fancy names.}
+\institute{Fancy institutions with fancy names.}
+\supervisor{Fancy supervisor with a fancy name.}
+\email{mail@mail.ac.uk}
+\date{\today}
+
+\addbibresource{./test.bib}
+
+\begin{document}
+\begin{frame}
+	
+\vspace{0.8ex}
+	
+\begin{NRCGblock}{Normal Title}
+\blindmathtrue \blindtext
+\end{NRCGblock}
+
+\vspace{0.8ex}
+\begin{NRCGblock}[colframe=white,no shadow]{}
+	Block without title and corners
+\end{NRCGblock}	
+\vspace{1.0ex}
+
+\begin{columns}[t]
+	\begin{column}{.47\textwidth}
+		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+			\begin{NRCGblock}[equal height group=A]{Half title}
+				\blindtext
+			\end{NRCGblock}\vfill
+	\end{beamercolorbox}
+	\end{column}
+	\hspace{12pt}
+	\begin{column}{.47\textwidth}
+		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+			\begin{NRCGblock}[equal height group=A]{Half title}
+				\blindtext
+				\begin{figure}
+					\begin{minipage}{0.43\textwidth}
+						\centering\includegraphics[width=0.6\textwidth]{uob}
+						\caption{Caption}
+					\end{minipage}
+					\begin{minipage}{0.03\textwidth}
+					\end{minipage}
+					\begin{minipage}{0.45\textwidth}
+						\centering\includegraphics[width=0.34\textwidth]{uob}
+						\caption{Caption}
+					\end{minipage}
+				\end{figure}
+			\end{NRCGblock}
+		\end{beamercolorbox}
+	\end{column}
+\end{columns}
+
+\vspace{1.2ex}
+\begin{NRCGblock}{Title}
+\blindtext
+\cite{Doe11} \cite{JohSil05} \cite{Joh11}
+\end{NRCGblock}
+\vspace{1.2ex}
+
+\begin{columns}[t]
+	\begin{column}{.47\textwidth}
+		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+			\begin{NRCGblock}[equal height group=B]{Half title}
+				\blindtext
+			\end{NRCGblock}\vfill
+		\end{beamercolorbox}
+	\end{column}
+	\hspace{12pt}
+	\begin{column}{.47\textwidth}
+		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
+			\begin{NRCGblock}[equal height group=B]{Half title}
+				\blindtext
+			\end{NRCGblock}
+		\end{beamercolorbox}
+	\end{column}
+\end{columns}
+
+\vspace{1.5ex}
+
+\referenceBlock
+
+\end{frame}
+\end{document}

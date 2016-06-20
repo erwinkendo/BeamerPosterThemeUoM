@@ -1,0 +1,217 @@
+\ProvidesPackage{beamerthemeNRCGposter}
+
+% University of Bristol NRCG group Beamer Poster theme by Erwin Lopez (2015, 2016)
+% All artistic and trademark rights are property of University of Bristol
+%
+% This program can be redistributed and/or modified under the terms
+% of the Apache License.
+
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage[percent]{overpic}
+\usepackage{tgbonum}
+\usepackage{lmodern}
+% Ensure chicago style references
+\usepackage[notes,authordate,backend=biber]{biblatex-chicago}
+
+\mode<presentation>
+
+\definecolor{NRCG1}{RGB}{44,136,46}
+\definecolor{NRCG2}{RGB}{111,111,110}
+\definecolor{NRCG3}{RGB}{171,31,45}
+\definecolor{tlg}{RGB}{255,255,255}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%It seems many of the following entries do not control any visible Behaviour. All such entries are
+%set to red, so that they are easy to spot if they ever become visible
+
+\setbeamercolor{headline}{fg=NRCG1,bg=white}
+\setbeamercolor{footline}{fg=NRCG1, bg=NRCG1}
+\setbeamerfont{footline}{size=\large,series=\tt}
+
+\setbeamercolor{title in headline}{fg=white,bg=NRCG1}
+\setbeamercolor{author in headline}{fg=black}
+\setbeamercolor{institute in headline}{fg=black}
+
+\setbeamercolor{lower separation line head}{fg=white,bg=NRCG1}
+
+\setbeamercolor{framesubtitle}{fg=NRCG1, bg=ta2gray}
+\setbeamercolor{author in head/foot}{fg=black, bg=NRCG1}
+\setbeamercolor{title in head/foot}{fg=NRCG1, bg=NRCG1}
+
+\setbeamercolor{author in foot}{fg=white, bg=NRCG1}
+
+\setbeamercolor{normal text}{fg=NRCG2, bg=tlg}
+\setbeamercolor{block body}{fg=black, bg=white}
+\setbeamercolor{block title}{fg=NRCG1,bg=NRCG1}
+\setbeamerfont{block title}{size=\large,series=\bf}
+\setbeamercolor{upper separation line head}{bg=black}
+
+\setbeamercolor{example body}{fg=NRCG1,bg=NRCG1}
+\setbeamercolor{example text}{fg=NRCG1,bg=NRCG1}
+\setbeamercolor{example title}{bg=NRCG1,fg=NRCG1}
+
+\setbeamercolor{alerted text}{fg=NRCG1}
+\setbeamercolor{structure}{fg=NRCG1}
+
+\setbeamertemplate{itemize items}{\color{NRCG1}$\blacktriangleright$}
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Special block for this designed style
+\newtcolorbox{NRCGblock}[2][]
+{
+	enhanced,
+	coltitle=white,
+	colback=white,
+	colframe=NRCG1,
+	colbacktitle=NRCG1,
+	fonttitle=\bfseries \LARGE,
+	fontupper=\Large,
+	boxsep = 0.005\paperwidth,
+	boxrule = 0.005\paperwidth,
+	titlerule = 0mm,
+	titlerule style=white,
+	drop shadow,
+	sharp corners=south,
+	title=#2,
+	#1
+}
+
+% Special block for this designed style
+\newtcolorbox{NRCGblockC}[2][]
+{
+	enhanced,
+	coltitle=white,
+	colback=white,
+	colframe=NRCG3,
+	colbacktitle=NRCG3,
+	fonttitle=\bfseries \LARGE,
+	fontupper=\Large,
+	boxsep = 0.005\paperwidth,
+	boxrule = 0.005\paperwidth,
+	titlerule = 0mm,
+	titlerule style=white,
+	drop shadow,
+	sharp corners=south,
+	title=#2,
+	#1
+}
+
+% Special token to include the email in the template
+\newtoks\email
+\newtoks\supervisor
+
+\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\def\unitlength{}\put(#1,#2){#3}}}
+\newlength\LengthX
+\setlength\LengthX{0.82\paperwidth}
+
+\newlength\LengthY
+\setlength\LengthY{0.1\paperheight}
+
+%\uselengthunit{pt}
+
+\newcommand{\referenceBlock}{
+	\begin{beamercolorbox}[wd=\paperwidth]{title in headline}
+		\vskip0.002\paperheight
+		\begin{columns}[c]
+			\begin{column}{0.03\paperwidth}
+			\end{column}
+			\begin{column}{0.10\paperwidth}
+				\textbf{\Large Reference:}
+			\end{column}
+			
+			\begin{column}{.86\paperwidth}
+				\printbibliography
+			\end{column}
+			\begin{column}{.03\paperwidth}
+			\end{column}
+		\end{columns}
+		\vskip0.002\paperheight
+	\end{beamercolorbox}
+}	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{
+	\leavevmode
+	
+	% Icons
+	\begin{beamercolorbox}[wd=\paperwidth]{headline}
+		\vskip0.012\paperheight
+		\hspace{0.015\paperwidth}
+		\includegraphics[width=0.25\paperwidth]{uob}
+		% Include other logos if desired
+		\hspace{0.018\paperwidth}
+		\includegraphics[width=0.25\paperwidth]{colciencias}
+		%	\hspace{2cm}
+		%	\includegraphics[scale=1]{sponsor}
+		\vskip0.012\paperheight
+	\end{beamercolorbox}
+	
+	% Title
+	\begin{beamercolorbox}[wd=\paperwidth]{title in headline}
+		\vskip0.01\paperheight  	    
+		\begin{columns}[T]
+			\begin{column}{.875\paperwidth}
+				\Put(\LengthX,\LengthY){\includegraphics[width=0.135\paperwidth]{nrcg}}
+				\textbf{\Huge{\inserttitle}}
+			\end{column}
+			\begin{column}{.03\paperwidth}
+			\end{column}
+		\end{columns}
+		\vskip0.01\paperheight
+	\end{beamercolorbox}
+	
+	\begin{beamercolorbox}[wd=\paperwidth]{headline title}
+		\vskip0.012\paperheight
+		\begin{columns}[T]
+			\begin{column}{.01\paperwidth}
+			\end{column}
+			\begin{column}{.4\paperwidth}
+				\vskip1ex
+				\usebeamercolor{author in headline}{\color{fg}\LARGE{Author: \insertauthor}\\[1ex]}
+				\vskip1ex
+			\end{column}
+			\begin{column}{.58\paperwidth}
+				\vskip1ex
+				\usebeamercolor{institute in headline}{\color{fg}\LARGE{Supervisors: \the\supervisor}\\[1ex]}
+				\vskip1ex
+			\end{column}
+			
+			\begin{column}{.01\paperwidth}
+			\end{column}
+		\end{columns}
+	\end{beamercolorbox}
+	\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+		\vskip0.012\paperheight
+	\end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{
+	\begin{beamercolorbox}[wd=\paperwidth]{author in foot}
+		\rule{0pt}{2pt}
+	\end{beamercolorbox}
+	
+	\leavevmode%
+	\begin{beamercolorbox}[ht=4ex,leftskip=1em,rightskip=1em]{author in foot}%
+		\textbf{\url{http://www.bristol.ac.uk}}
+		\hfill
+		\textbf{\today}
+		\hfill
+		\textbf{\href{mailto:\the\email}{\the\email}}
+		\vskip1ex
+	\end{beamercolorbox}
+	\vskip0pt%
+	\begin{beamercolorbox}[wd=\paperwidth]{author in foot}
+		\rule{0pt}{2pt}
+	\end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Some beamer customizations:
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]{}% Number float-like environments
+
+\mode<all>
