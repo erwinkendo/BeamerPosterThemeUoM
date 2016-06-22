@@ -41,18 +41,22 @@
 
 \setbeamercolor{author in foot}{fg=white, bg=NRCG1}
 
-\setbeamercolor{normal text}{fg=NRCG2, bg=tlg}
+\setbeamercolor{normal text}{fg=white, bg=tlg}
 \setbeamercolor{block body}{fg=black, bg=white}
 \setbeamercolor{block title}{fg=NRCG1,bg=NRCG1}
 \setbeamerfont{block title}{size=\large,series=\bf}
 \setbeamercolor{upper separation line head}{bg=black}
+\setbeamercolor{itemize/enumerate body}{fg=gray}
 
-\setbeamercolor{example body}{fg=NRCG1,bg=NRCG1}
-\setbeamercolor{example text}{fg=NRCG1,bg=NRCG1}
-\setbeamercolor{example title}{bg=NRCG1,fg=NRCG1}
+\setbeamercolor{example body}{fg=white,bg=NRCG1}
+\setbeamercolor{example text}{fg=white,bg=NRCG1}
+\setbeamercolor{example title}{bg=white,fg=NRCG1}
 
-\setbeamercolor{alerted text}{fg=NRCG1}
-\setbeamercolor{structure}{fg=NRCG1}
+\setbeamercolor{caption}{fg=black}
+\setbeamercolor{caption name}{fg=NRCG1}
+
+\setbeamercolor{alerted text}{fg=white}
+\setbeamercolor{structure}{fg=white}
 
 \setbeamertemplate{itemize items}{\color{NRCG1}$\blacktriangleright$}
 \setbeamertemplate{navigation symbols}{}  % no navigation on a poster
@@ -107,7 +111,7 @@
 \setlength\LengthX{0.82\paperwidth}
 
 \newlength\LengthY
-\setlength\LengthY{0.1\paperheight}
+\setlength\LengthY{0.09\paperheight}
 
 %\uselengthunit{pt}
 
@@ -120,7 +124,7 @@
 			\begin{column}{0.10\paperwidth}
 				\textbf{\Large Reference:}
 			\end{column}
-			
+
 			\begin{column}{.86\paperwidth}
 				\printbibliography
 			\end{column}
@@ -134,54 +138,55 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{headline}{
 	\leavevmode
-	
+  
 	% Icons
 	\begin{beamercolorbox}[wd=\paperwidth]{headline}
-		\vskip0.012\paperheight
-		\hspace{0.015\paperwidth}
-		\includegraphics[width=0.25\paperwidth]{uob}
-		% Include other logos if desired
-		% \hspace{0.018\paperwidth}
-		% \includegraphics[width=0.25\paperwidth]{colciencias}
-		%	\hspace{2cm}
-		%	\includegraphics[scale=1]{sponsor}
-		\vskip0.012\paperheight
+	 	\vskip0.012\paperheight
+	 	\hspace{0.015\paperwidth}
+	 	\includegraphics[width=0.25\paperwidth]{uob}
+	 	% Include other logos if desired
+	%  	\hspace{0.018\paperwidth}
+	%  	\includegraphics[width=0.25\paperwidth]{colciencias}
+	%	\hspace{2cm}
+	%	\includegraphics[scale=1]{sponsor}
+	 	\vskip0.012\paperheight
 	\end{beamercolorbox}
-	
+
 	% Title
 	\begin{beamercolorbox}[wd=\paperwidth]{title in headline}
-		\vskip0.01\paperheight  	    
-		\begin{columns}[T]
-			\begin{column}{.875\paperwidth}
-				\Put(\LengthX,\LengthY){\includegraphics[width=0.135\paperwidth]{nrcg}}
-				\textbf{\Huge{\inserttitle}}
-			\end{column}
-			\begin{column}{.03\paperwidth}
-			\end{column}
-		\end{columns}
-		\vskip0.01\paperheight
+	   \vskip0.01\paperheight  	    
+	   \begin{columns}[T]
+	 	    	\begin{column}{.875\paperwidth}
+	 	    		\Put(\LengthX,\LengthY){\includegraphics[width=0.128\paperwidth]{nrcg}}
+	 	    		\textbf{\Huge{\inserttitle}}
+	 	    	\end{column}
+	 	    	\begin{column}{.03\paperwidth}
+	 	    	\end{column}
+	   \end{columns}
+	   \vskip0.01\paperheight
 	\end{beamercolorbox}
-	
+    
 	\begin{beamercolorbox}[wd=\paperwidth]{headline title}
 		\vskip0.012\paperheight
 		\begin{columns}[T]
 			\begin{column}{.01\paperwidth}
 			\end{column}
 			\begin{column}{.4\paperwidth}
-				\vskip1ex
-				\usebeamercolor{author in headline}{\color{fg}\LARGE{Author: \insertauthor}\\[1ex]}
-				\vskip1ex
+			    \vskip1ex
+			    \usebeamercolor{author in headline}{\color{fg}\LARGE{Author: \insertauthor}\\[1ex]}
+			    \vskip1ex
 			\end{column}
-			\begin{column}{.58\paperwidth}
-				\vskip1ex
-				\usebeamercolor{institute in headline}{\color{fg}\LARGE{Supervisors: \the\supervisor}\\[1ex]}
-				\vskip1ex
-			\end{column}
-			
+		    \begin{column}{.58\paperwidth}
+	          	\vskip1ex
+	          	\usebeamercolor{institute in headline}{\color{fg}\LARGE{Supervisors: \the\supervisor}\\[1ex]}
+	          	\vskip1ex
+		    \end{column}
+		        
 			\begin{column}{.01\paperwidth}
 			\end{column}
 		\end{columns}
 	\end{beamercolorbox}
+	
 	\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
 		\vskip0.012\paperheight
 	\end{beamercolorbox}
@@ -202,7 +207,9 @@
 		\textbf{\href{mailto:\the\email}{\the\email}}
 		\vskip1ex
 	\end{beamercolorbox}
+	
 	\vskip0pt%
+	
 	\begin{beamercolorbox}[wd=\paperwidth]{author in foot}
 		\rule{0pt}{2pt}
 	\end{beamercolorbox}
