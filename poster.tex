@@ -1,11 +1,10 @@
 \documentclass{beamer}
 \usepackage[orientation=portrait,size=a0,scale=1.18,debug]{beamerposter}
-\mode<presentation>{\usetheme{NRCGposter}}
-\usepackage[utf8]{inputenc}
+\mode<presentation>{\usetheme{UoMposter}}
 \usepackage[english]{babel} % changed the option to english
 \usepackage[babel]{csquotes}
 \usepackage{hyperref} %enable hyperlink for urls
-\usepackage{blindtext}
+\usepackage[pangram]{blindtext}
 
 \title{Long long very long title}
 \author{Fancy people with fancy names.}
@@ -13,7 +12,7 @@
 \supervisor{Fancy supervisor with a fancy name.}
 \email{mail@mail.ac.uk}
 \date{\today}
-
+% Need to run biber after the first pdflatex run, or after aux files are created.
 \addbibresource{./test.bib}
 
 \begin{document}
@@ -21,67 +20,67 @@
 	
 \vspace{0.8ex}
 	
-\begin{NRCGblock}{Normal Title}
-\blindmathtrue \blindtext
-\end{NRCGblock}
+\begin{UoMblock}{Normal Title}
+\blindmathtrue \Blindtext[1][5]
+\end{UoMblock}
 
 \vspace{0.8ex}
-\begin{NRCGblock}[colframe=white,no shadow]{}
+\begin{UoMblock}[colframe=white,no shadow]{}
 	Block without title and corners
-\end{NRCGblock}	
+\end{UoMblock}	
 \vspace{1.0ex}
 
 \begin{columns}[t]
 	\begin{column}{.47\textwidth}
 		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-			\begin{NRCGblock}[equal height group=A]{Half title}
-				\blindtext
-			\end{NRCGblock}\vfill
+			\begin{UoMblock}[equal height group=A]{Half title}
+				\Blindtext[1][10]
+			\end{UoMblock}\vfill
 	\end{beamercolorbox}
 	\end{column}
 	\hspace{0.05em}
 	\begin{column}{.47\textwidth}
 		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-			\begin{NRCGblock}[equal height group=A]{Half title}
-				\blindtext
+			\begin{UoMblock}[equal height group=A]{Half title}
+				\Blindtext[1][10]
 				\begin{figure}
 					\begin{minipage}{0.43\textwidth}
-						\centering\includegraphics[width=0.6\textwidth]{uob}
+						\centering\includegraphics[width=0.6\textwidth]{uom}
 						\caption{Caption}
 					\end{minipage}
 					\begin{minipage}{0.03\textwidth}
 					\end{minipage}
 					\begin{minipage}{0.45\textwidth}
-						\centering\includegraphics[width=0.34\textwidth]{uob}
+						\centering\includegraphics[width=0.34\textwidth]{uom}
 						\caption{Caption}
 					\end{minipage}
 				\end{figure}
-			\end{NRCGblock}
+			\end{UoMblock}
 		\end{beamercolorbox}
 	\end{column}
 \end{columns}
 
 \vspace{1.2ex}
-\begin{NRCGblock}{Title}
-\blindtext
+\begin{UoMblock}{Title}
+\Blindtext[2][5]
 \cite{Doe11} \cite{JohSil05} \cite{Joh11}
-\end{NRCGblock}
+\end{UoMblock}
 \vspace{1.2ex}
 
 \begin{columns}[t]
 	\begin{column}{.47\textwidth}
 		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-			\begin{NRCGblock}[equal height group=B]{Half title}
-				\blindtext
-			\end{NRCGblock}\vfill
+			\begin{UoMblock}[equal height group=B]{Half title}
+				\Blindtext[3][4]
+			\end{UoMblock}\vfill
 		\end{beamercolorbox}
 	\end{column}
 	\hspace{12pt}
 	\begin{column}{.47\textwidth}
 		\begin{beamercolorbox}[center,wd=\textwidth]{postercolumn}
-			\begin{NRCGblock}[equal height group=B]{Half title}
-				\blindtext
-			\end{NRCGblock}
+			\begin{UoMblock}[equal height group=B]{Half title}
+				\Blindtext[3][4]
+			\end{UoMblock}
 		\end{beamercolorbox}
 	\end{column}
 \end{columns}

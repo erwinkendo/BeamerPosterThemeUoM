@@ -1,0 +1,237 @@
+\ProvidesPackage{beamerthemeUoMposter}
+
+% University of Manchester Beamer Poster theme by Erwin Lopez (2022)
+% All artistic and trademark rights are property of University of Manchester
+%
+% This program can be redistributed and/or modified under the terms
+% of the Apache License.
+
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage[percent]{overpic}
+\usepackage{tgbonum}
+\usepackage{lmodern}
+\usepackage[default,oldstyle,scale=0.95]{opensans}
+\usepackage[T1]{fontenc}
+% Ensure chicago style references
+\usepackage[notes,authordate,backend=biber]{biblatex-chicago}
+
+\mode<presentation>
+% Colors
+% https://www.staffnet.manchester.ac.uk/brand/visual-identity/colour/
+% Logo
+% https://www.staffnet.manchester.ac.uk/brand/visual-identity/logo/logo-downloads/
+\definecolor{UoM1}{RGB}{109,0,157}
+\definecolor{UoM2}{RGB}{149,149,151}
+\definecolor{UoM3}{RGB}{255,204,51}
+\definecolor{tlg}{RGB}{255,255,255}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%It seems many of the following entries do not control any visible Behaviour. All such entries are
+%set to red, so that they are easy to spot if they ever become visible
+
+\setbeamercolor{headline}{fg=UoM1,bg=white}
+\setbeamercolor{footline}{fg=UoM1, bg=UoM1}
+\setbeamerfont{footline}{size=\large,series=\tt}
+
+\setbeamercolor{title in headline}{fg=white,bg=UoM1}
+\setbeamercolor{author in headline}{fg=black}
+\setbeamercolor{institute in headline}{fg=black}
+
+\setbeamercolor{lower separation line head}{fg=white,bg=UoM1}
+
+\setbeamercolor{framesubtitle}{fg=UoM1, bg=ta2gray}
+\setbeamercolor{author in head/foot}{fg=black, bg=UoM1}
+\setbeamercolor{title in head/foot}{fg=UoM1, bg=UoM1}
+
+\setbeamercolor{author in foot}{fg=white, bg=UoM1}
+
+\setbeamercolor{normal text}{fg=white, bg=tlg}
+\setbeamercolor{block body}{fg=black, bg=white}
+\setbeamercolor{block title}{fg=UoM1,bg=UoM1}
+\setbeamerfont{block title}{size=\large,series=\bf}
+\setbeamercolor{upper separation line head}{bg=black}
+\setbeamercolor{itemize/enumerate body}{fg=gray}
+
+\setbeamercolor{example body}{fg=white,bg=UoM1}
+\setbeamercolor{example text}{fg=white,bg=UoM1}
+\setbeamercolor{example title}{bg=white,fg=UoM1}
+
+\setbeamercolor{caption}{fg=black}
+\setbeamercolor{caption name}{fg=UoM1}
+
+\setbeamercolor{alerted text}{fg=white}
+\setbeamercolor{structure}{fg=white}
+
+\setbeamertemplate{itemize items}{\color{UoM1}$\blacktriangleright$}
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Special block for this designed style
+\newtcolorbox{UoMblock}[2][]
+{
+	enhanced,
+	coltitle=white,
+	colback=white,
+	colframe=UoM1,
+	colbacktitle=UoM1,
+	fonttitle=\bfseries \LARGE,
+	fontupper=\Large,
+	boxsep = 0.005\paperwidth,
+	boxrule = 0.005\paperwidth,
+	titlerule = 0mm,
+	titlerule style=white,
+	drop shadow,
+	sharp corners=south,
+	title=#2,
+	#1
+}
+
+% Special block for this designed style
+\newtcolorbox{UoMblockC}[2][]
+{
+	enhanced,
+	coltitle=white,
+	colback=white,
+	colframe=UoM3,
+	colbacktitle=UoM3,
+	fonttitle=\bfseries \LARGE,
+	fontupper=\Large,
+	boxsep = 0.005\paperwidth,
+	boxrule = 0.005\paperwidth,
+	titlerule = 0mm,
+	titlerule style=white,
+	drop shadow,
+	sharp corners=south,
+	title=#2,
+	#1
+}
+
+% Special token to include the email in the template
+\newtoks\email
+\newtoks\supervisor
+
+\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\def\unitlength{}\put(#1,#2){#3}}}
+\newlength\LengthX
+\setlength\LengthX{0.82\paperwidth}
+
+\newlength\LengthY
+\setlength\LengthY{0.09\paperheight}
+
+%\uselengthunit{pt}
+
+\newcommand{\referenceBlock}{
+	\begin{beamercolorbox}[wd=\paperwidth]{title in headline}
+		\vskip0.002\paperheight
+		\begin{columns}[c]
+			\begin{column}{0.03\paperwidth}
+			\end{column}
+			\begin{column}{0.10\paperwidth}
+				\textbf{\Large Reference:}
+			\end{column}
+
+			\begin{column}{.86\paperwidth}
+				\printbibliography
+			\end{column}
+			\begin{column}{.03\paperwidth}
+			\end{column}
+		\end{columns}
+		\vskip0.002\paperheight
+	\end{beamercolorbox}
+}	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{
+	\leavevmode
+  
+	% Icons
+	\begin{beamercolorbox}[wd=\paperwidth]{headline}
+	 	\vskip0.015\paperheight
+	 	\hspace{0.02\paperheight}
+	 	\includegraphics[width=0.25\paperwidth]{uom}
+	 	% Include other logos if desired
+	%  	\hspace{0.018\paperwidth}
+	%  	\includegraphics[width=0.25\paperwidth]{uom}
+	 	\vskip0.015\paperheight
+	\end{beamercolorbox}
+
+	% Title
+	\begin{beamercolorbox}[wd=\paperwidth]{title in headline}
+	   \vskip0.01\paperheight  	    
+	   \begin{columns}[T]
+	 	    	\begin{column}{.875\paperwidth}
+%	 	    		\Put(\LengthX,\LengthY){\includegraphics[width=0.128\paperwidth]{nrcg}}
+	 	    		\textbf{\Huge{\inserttitle}}
+	 	    	\end{column}
+	 	    	\begin{column}{.03\paperwidth}
+	 	    	\end{column}
+	   \end{columns}
+	   \vskip0.01\paperheight
+	\end{beamercolorbox}
+    
+	\begin{beamercolorbox}[wd=\paperwidth]{headline title}
+		\vskip0.012\paperheight
+		\begin{columns}[T]
+			\begin{column}{.01\paperwidth}
+			\end{column}
+			\begin{column}{.4\paperwidth}
+			    \vskip1ex
+			    \usebeamercolor{author in headline}{\color{fg}\LARGE{Author: \insertauthor}\\[1ex]}
+			    \vskip1ex
+			\end{column}
+		    \begin{column}{.58\paperwidth}
+	          	\vskip1ex
+	          	\usebeamercolor{institute in headline}{\color{fg}\LARGE{Supervisors: \the\supervisor}\\[1ex]}
+	          	\vskip1ex
+		    \end{column}
+		        
+			\begin{column}{.01\paperwidth}
+			\end{column}
+		\end{columns}
+	\end{beamercolorbox}
+	
+	\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+		\vskip0.012\paperheight
+	\end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{
+	\begin{beamercolorbox}[wd=\paperwidth]{author in foot}
+		\rule{0pt}{2pt}
+	\end{beamercolorbox}
+	
+	\leavevmode%
+	\begin{beamercolorbox}[ht=4ex,leftskip=1em,rightskip=1em]{author in foot}%
+		\textbf{\url{https://www.manchester.ac.uk}}
+		\hfill
+		\textbf{\today}
+		\hfill
+		\textbf{\href{mailto:\the\email}{\the\email}}
+		\vskip1ex
+	\end{beamercolorbox}
+	
+	\vskip0pt%
+	
+	\begin{beamercolorbox}[wd=\paperwidth]{author in foot}
+		\rule{0pt}{2pt}
+	\end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Some beamer customizations:
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]{}% Number float-like environments
+
+\mode<all>
+
+\AtBeginDocument{%
+	\typeout{..................................................................}
+	\typeout{You are using the University of Manchester beamer theme (Erwin Lopez)}
+	\typeout{All artistic and trademark rights are property of University of Manchester}
+	\typeout{V1.0}
+	\typeout{Use at your own risk ! Any contribution will be more than welcome}
+	\typeout{Updated version may be found here : }
+	\typeout{https://github.com/erwinkendo/BeamerPosterThemeUoM}
+}
